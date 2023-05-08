@@ -1,0 +1,43 @@
+.form {
+  height: 53px;
+  width: 700px;
+  padding: 0.625em;
+  box-sizing: border-box;
+  box-shadow: 0 0.125em 0.3125em rgba(#000000, 0.2);
+  border-radius: 6.25em;
+  background-color: #ffffff;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 300px;
+  }
+}
+
+.form__input {
+  font: inherit;
+  border: 0;
+  outline: 0;
+  border-radius: 5em;
+  box-sizing: border-box;
+  color: #f94748;
+  height: 100%;
+  width: 100%;
+  padding: 0 0.714em;
+}
+
+.form__input::placeholder {
+  color: currentColor;
+}
+
+.form__input::required {
+  color: currentColor;
+}
+
+.form__btn {
+  display: flex;
+  gap: 10px;
+}
