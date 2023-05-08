@@ -26,11 +26,17 @@ export default {
         apple.status === "ground" || apple.status === "basket"
           ? "0px"
           : `${apple.position.bottom}px`;
-      const left = `${apple.position.left}px`;
+      const left =
+        apple.status === "basket" ? "550px" : `${apple.position.left}px`;
+      const visibility = apple.status === "basket" ? "hidden" : "visible";
       const transition =
-        apple.status === "ground" && `bottom ${Math.random() * 1.2}s linear`;
+        apple.status === "ground"
+          ? `bottom ${Math.random() * 1.2}s linear`
+          : apple.status === "basket"
+          ? `left ${Math.random() * 1.5}s linear, visibility 0.5s linear 1.5s`
+          : "";
 
-      return { bottom, left, transition };
+      return { bottom, left, visibility, transition };
     }
 
     return {
