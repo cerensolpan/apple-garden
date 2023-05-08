@@ -4,18 +4,23 @@
       <Tree />
       <Basket />
     </div>
+    <div class="container__form">
+      <InputGroup />
+    </div>
   </div>
 </template>
 
 <script>
 import Tree from "./Tree/index.vue";
 import Basket from "./Basket/index.vue";
+import InputGroup from "./UI/InputGroup/index.vue";
 
 export default {
   name: "HomeComponent",
   components: {
     Tree,
     Basket,
+    InputGroup,
   },
 };
 </script>
@@ -38,5 +43,12 @@ export default {
   justify-content: center;
   align-items: center;
   padding-bottom: 60px;
+}
+.container__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 </style>
