@@ -5,6 +5,7 @@
       :class="{ shaking: isShaking }"
       id="tree"
     />
+    <Apple />
   </div>
 </template>
 
@@ -12,10 +13,13 @@
 import "./style.css";
 import { computed } from "vue";
 import store from "../../store";
+import Apple from "../Apple/index.vue";
 
 export default {
   name: "treeComponent",
-
+  components: {
+    Apple,
+  },
   setup() {
     function shakeTree() {
       store.dispatch("shakeTree");
