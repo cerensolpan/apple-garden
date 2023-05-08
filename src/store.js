@@ -5,6 +5,7 @@ const store = createStore({
   state: {
     isShaking: false,
     apples: appleGenerator(8),
+    countInBasket: 0,
   },
   mutations: {
     setIsShaking(state, shaking) {
@@ -16,6 +17,13 @@ const store = createStore({
         // Select random apples to drop
         let dropAppleIndex = Math.floor(Math.random() * treeApples.length);
         treeApples[dropAppleIndex].status = "ground";
+        // Move them to basket after 1 sec
+        setTimeout(() => {
+          treeApples[dropAppleIndex].status = "basket";
+          state.countInBasket = state.apples.filter(
+            (apple) => apple.status === "basket"
+          ).length;
+        }, 1000);
       });
     },
   },
