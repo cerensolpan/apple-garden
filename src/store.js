@@ -4,12 +4,22 @@ import { appleGenerator } from "./utils/appleGenerator";
 const store = createStore({
   state: {
     isShaking: false,
+    numberOfApple: 8,
     apples: appleGenerator(8),
     countInBasket: 0,
   },
   mutations: {
     setIsShaking(state, shaking) {
       state.isShaking = shaking;
+    },
+    reset(state) {
+      state.isShaking = false;
+      state.apples = appleGenerator(state.numberOfApple);
+      state.countInBasket = 0;
+    },
+    setNumberOfApple(state, numberOfApple) {
+      state.numberOfApple = numberOfApple;
+      store.commit("reset");
     },
     shakeTree(state) {
       let treeApples = state.apples.filter((apple) => apple.status === "tree");
@@ -31,10 +41,17 @@ const store = createStore({
     shakeTree({ commit, state }) {
       if (state.isShaking) return;
       commit("setIsShaking", true);
+
       setTimeout(() => {
         commit("shakeTree");
         commit("setIsShaking", false);
       }, 3000);
+    },
+    reset({ commit }) {
+      commit("reset");
+    },
+    setNumberOfApple({ commit }, { numberOfApple }) {
+      commit("setNumberOfApple", numberOfApple);
     },
   },
 });
