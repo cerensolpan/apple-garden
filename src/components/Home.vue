@@ -2,17 +2,20 @@
   <div class="container">
     <div class="container__animation">
       <Tree />
+      <Basket />
     </div>
   </div>
 </template>
 
 <script>
 import Tree from "./Tree/index.vue";
+import Basket from "./Basket/index.vue";
 
 export default {
   name: "HomeComponent",
   components: {
     Tree,
+    Basket,
   },
 };
 </script>

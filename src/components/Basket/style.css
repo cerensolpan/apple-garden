@@ -1,0 +1,22 @@
+.basket {
+  position: relative;
+  width: 200px;
+  height: 550px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  z-index: 20;
+}
+.basket__count {
+  position: absolute;
+  font-size: 20px;
+  background: #ff0000;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
